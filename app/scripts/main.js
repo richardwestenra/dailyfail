@@ -15,9 +15,9 @@ $(function(){
 		return  toLong ? s_ + '…' : s_;
 	};
 	$(headlines).each(function(key,val){
-		$(val).each(function(){
-			var url = $(this).find('a').attr('href'),
-				$this = $(this);
+		$(val).find('a').each(function(){
+			var $this = $(this),
+				url = $this.attr('href');
 			$.get(url, function(data) {
 				var comment = $(data).find(commentClass+':first').text();
 				if (typeof comment != 'string' || comment.length === 0) {
