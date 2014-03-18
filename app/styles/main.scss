@@ -29,6 +29,17 @@ body {
         margin-top: 0;
     }
 }
+.btn {
+    background: steelblue;
+    padding: 4px 10px;
+    border-radius: 4px;
+    text-decoration: none;
+    color: #fff;
+    transition: linear background 0.2s;
+    &:hover {
+        background: darken(steelblue,15%);
+    }
+}
 
 .browsehappy {
     margin: 0.2em 0;
