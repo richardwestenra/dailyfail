@@ -1,10 +1,10 @@
 "use strict";
 $(function(){
 	var headlines = [
-		'.article .linkro-darkred a',
-		'editors-choice li a',
-		'.linkro-wocc li a',
-		'.link-bogr2 li a'
+		'.article .linkro-darkred',
+		'editors-choice li',
+		'.linkro-wocc li',
+		'.link-bogr2 li'
 	],
 	commentClass = '.comment-text',
 	maxLength = 200;
@@ -16,7 +16,7 @@ $(function(){
 	};
 	$(headlines).each(function(key,val){
 		$(val).each(function(){
-			var url = $(this).attr('href'),
+			var url = $(this).find('a').attr('href'),
 				$this = $(this);
 			$.get(url, function(data) {
 				var comment = $(data).find(commentClass+':first').text();
@@ -26,7 +26,8 @@ $(function(){
 					comment = truncate(comment,maxLength,true);
 				}
 				// console.log("Success! Data received from "+url+". Comment reads: '"+comment+"'.");
-				if(val === '.link-bogr2 li a'){
+				if(val == '.link-bogr2 li'){
+					console.log($this, val);
 					$this.find('strong').text(comment);
 				} else {
 					$this.text(comment);
