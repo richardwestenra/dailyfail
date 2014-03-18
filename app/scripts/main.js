@@ -28,9 +28,9 @@ $(function(){
 				// console.log("Success! Data received from "+url+". Comment reads: '"+comment+"'.");
 				if(val == '.link-bogr2 li'){
 					console.log($this, val);
-					$this.find('strong').text(comment);
+					$this.find('a').find('strong').text(comment);
 				} else {
-					$this.text(comment);
+					$this.find('a').text(comment);
 				}
 			});	
 		});
