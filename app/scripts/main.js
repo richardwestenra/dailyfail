@@ -2,20 +2,36 @@
 $(function(){
 	var headlines = [
 		'.article .linkro-darkred a',
+		'editors-choice li a',
+		'.linkro-wocc li a',
 		'.link-bogr2 li a'
 	],
 	commentClass = '.comment-text',
-	maxLength = 140;
-	$( headlines.join(', ') ).each(function(){
-		var url = $(this).attr('href'),
-			$this = $(this);
-		$.get(url, function(data) {
-			var comment = $(data).find(commentClass+':first').text();
-			if (typeof comment === "string" && comment.length>maxLength) {
-				comment = comment.substr(0,maxLength) + "…";
-			}
-			console.log("Success! Data received from "+url+". Comment reads: '"+comment+"'.");
-			$this.text(comment);
-		});	
+	maxLength = 200;
+	function truncate(s,n,useWordBoundary){
+		var toLong = s.length>n,
+			s_ = toLong ? s.substr(0,n-1) : this;
+		s_ = useWordBoundary && toLong ? s_.substr(0,s_.lastIndexOf(' ')) : s_;
+		return  toLong ? s_ + '…' : s_;
+	};
+	$(headlines).each(function(key,val){
+		$(val).each(function(){
+			var url = $(this).attr('href'),
+				$this = $(this);
+			$.get(url, function(data) {
+				var comment = $(data).find(commentClass+':first').text();
+				if (typeof comment != 'string' || comment.length === 0) {
+					comment = 'No comment';
+				} else if(comment.length>maxLength) {
+					comment = truncate(comment,maxLength,true);
+				}
+				// console.log("Success! Data received from "+url+". Comment reads: '"+comment+"'.");
+				if(val === '.link-bogr2 li a'){
+					$this.find('strong').text(comment);
+				} else {
+					$this.text(comment);
+				}
+			});	
+		});
 	});
 });

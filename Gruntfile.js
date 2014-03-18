@@ -49,7 +49,7 @@ module.exports = function (grunt) {
             },
             livereload: {
                 options: {
-                    open: true,
+                    // open: true,
                     base: [
                         '.tmp',
                         '<%= yeoman.app %>'
@@ -322,7 +322,7 @@ module.exports = function (grunt) {
         'cssmin',
         'uglify',
         'copy:dist',
-        'rev',
+        // 'rev',
         'usemin'
     ]);
 

@@ -1,0 +1,57 @@
+$media: 800px*1.1;
+
+body {
+    background: #fafafa;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #333;
+}
+
+.hero-unit {
+    margin: 50px auto 0 auto;
+    width: 90%;
+    font-size: 18px;
+    font-weight: 200;
+    line-height: 30px;
+    background-color: #eee;
+    border-radius: 6px;
+    padding: 60px;
+    box-sizing: border-box;
+    @media screen and (min-width: $media){
+        width: 850px;
+    }
+    h1 {
+        font-size: 40px;
+        @media screen and (min-width: $media){
+            font-size: 60px;
+        }
+        line-height: 1;
+        letter-spacing: -1px;
+        margin-top: 0;
+    }
+}
+
+.browsehappy {
+    margin: 0.2em 0;
+    background: #ccc;
+    color: #000;
+    padding: 0.2em 0;
+}
+.addthis_floating_style {
+    top: 50px;
+    padding-top: 12px;
+    display: none;
+    @media screen and (min-width: $media*1.2){
+        display: block;
+    }
+}
+.fb-like {
+    margin-bottom: 10px;
+}
+hr {
+    margin: 2em 0;
+    $c: #ccc;
+    height: 1px;
+    border: none;
+    background-color: $c;
+    color: $c;
+}
