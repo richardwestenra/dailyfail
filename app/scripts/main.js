@@ -3,8 +3,8 @@ $(function(){
 	var headlines = [
 		'.article .linkro-darkred',
 		'editors-choice li',
-		'.linkro-wocc li',
-		'.link-bogr2 li'
+		// '.link-bogr2 li',
+		'.linkro-wocc li'
 	],
 	commentClass = '.comment-text',
 	maxLength = 200;
@@ -26,7 +26,7 @@ $(function(){
 					comment = truncate(comment,maxLength,true);
 				}
 				// console.log("Success! Data received from "+url+". Comment reads: '"+comment+"'.");
-				if(val == '.link-bogr2 li'){
+				if(val == '.linkro-wocc li'){
 					console.log($this, val);
 					$this.find('strong').text(comment);
 				} else {
