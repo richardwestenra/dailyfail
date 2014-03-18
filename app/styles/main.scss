@@ -20,13 +20,16 @@ body {
         width: 850px;
     }
     h1 {
-        font-size: 40px;
-        @media screen and (min-width: $media){
-            font-size: 60px;
-        }
-        line-height: 1;
+        font-size: 30px;
+        line-height: 1.4em;
         letter-spacing: -1px;
         margin-top: 0;
+        @media screen and (min-width: $media){
+            font-size: 39px;
+        }
+    }
+    img {
+        border-radius: 4px;
     }
 }
 .btn {

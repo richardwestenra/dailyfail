@@ -14,11 +14,27 @@ $(function(){
 		s_ = useWordBoundary && toLong ? s_.substr(0,s_.lastIndexOf(' ')) : s_;
 		return  toLong ? s_ + '…' : s_;
 	};
+	var ajaxCalls = [];
+	$(window).add('p').addClass('loadingMessage').html("Loading comments&hellip;").css({
+		'position':'fixed',
+		'top': '10px',
+		'left': '10px',
+		'background': 'rgba(255,255,255,0.4)',
+		'color': '#333',
+		'font-weight': 'bold',
+		'padding': '3px 15px',
+		'z-index': '99',
+		'font-size': '18px',
+		'border-radius': '4px',
+		'font-family': '"Helvetica Neue", Helvetica, Arial, sans-serif'
+	});
 	$(headlines).each(function(key,val){
-		$(val).find('a').each(function(){
+		$(val).find('a').each(function(key2,val2){
 			var $this = $(this),
-				url = $this.attr('href');
-			$.get(url, function(data) {
+				url = $this.attr('href'),
+				uid = key+'-'+key2;
+				ajaxCalls.push(uid);
+			var get = $.get(url, function(data) {
 				var comment = $(data).find(commentClass+':first').text();
 				if (typeof comment != 'string' || comment.length === 0) {
 					comment = 'No comment';
@@ -31,7 +47,16 @@ $(function(){
 				} else {
 					$this.text(comment);
 				}
-			});	
+			});
+			get.always(function(){
+				var i = ajaxCalls.indexOf(uid);
+				if (i != -1) {
+					ajaxCalls.splice(i, 1);
+				}
+				if (ajaxCalls.length < 1){
+					$('.loadingMessage').remove();
+				}
+			});
 		});
 	});
 });
