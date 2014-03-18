@@ -27,7 +27,6 @@ $(function(){
 				}
 				// console.log("Success! Data received from "+url+". Comment reads: '"+comment+"'.");
 				if(val == '.linkro-wocc li'){
-					console.log($this, val);
 					$this.find('strong').text(comment);
 				} else {
 					$this.text(comment);
