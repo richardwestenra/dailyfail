@@ -22,7 +22,7 @@ $(function(){
 		'position':'fixed',
 		'top': '10px',
 		'left': '10px',
-		'background': 'rgba(255,255,255,0.4)',
+		'background': 'rgba(255,255,255,0.9)',
 		'color': '#333',
 		'font-weight': 'bold',
 		'padding': '3px 15px',
