@@ -15,7 +15,10 @@ $(function(){
 		return  toLong ? s_ + '…' : s_;
 	};
 	var ajaxCalls = [];
-	$(window).add('p').addClass('loadingMessage').html("Loading comments&hellip;").css({
+	$('<p/>',{
+			'class':'loadingMessage'
+	}).html("Loading comments&hellip;")
+	.css({
 		'position':'fixed',
 		'top': '10px',
 		'left': '10px',
@@ -27,7 +30,7 @@ $(function(){
 		'font-size': '18px',
 		'border-radius': '4px',
 		'font-family': '"Helvetica Neue", Helvetica, Arial, sans-serif'
-	});
+	}).appendTo('body');
 	$(headlines).each(function(key,val){
 		$(val).find('a').each(function(key2,val2){
 			var $this = $(this),
