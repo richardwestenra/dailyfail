@@ -15,24 +15,25 @@ $(function(){
 		return  toLong ? s_ + '…' : s_;
 	};
 	var ajaxCalls = [];
-	$('<p/>',{
-			'class':'loadingMessage'
-	}).html("Loading comments&hellip;")
-	.css({
-		'position':'fixed',
-		'top': '10px',
-		'left': '10px',
-		'background': 'rgba(255,255,255,0.9)',
-		'color': '#333',
-		'font-weight': 'bold',
-		'padding': '3px 15px',
-		'z-index': '99',
-		'font-size': '18px',
-		'border-radius': '4px',
-		'font-family': '"Helvetica Neue", Helvetica, Arial, sans-serif'
-	}).appendTo('body');
+	var loadingMessage = $('<p/>',{
+				'class':'loadingMessage'
+		}).html("Loading comments&hellip;")
+		.css({
+			'position':'fixed',
+			'top': '10px',
+			'left': '10px',
+			'background': 'rgba(255,255,255,0.9)',
+			'color': '#333',
+			'font-weight': 'bold',
+			'padding': '3px 15px',
+			'z-index': '99',
+			'font-size': '18px',
+			'border-radius': '4px',
+			'font-family': '"Helvetica Neue", Helvetica, Arial, sans-serif'
+		});
 	$(headlines).each(function(key,val){
 		$(val).find('a').each(function(key2,val2){
+			loadingMessage.appendTo('body');
 			var $this = $(this),
 				url = $this.attr('href'),
 				uid = key+'-'+key2;
