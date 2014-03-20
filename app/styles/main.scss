@@ -95,14 +95,14 @@ hr {
         margin-bottom: 10px;
     }
 }
-#addthis {
-    text-align: center;
-    .addthis_toolbox {
-        display: inline-block;
-        .at300b {
-            margin-bottom: 5px;
-            &:nth-child(6) {
-                @media only screen and (max-width: 400px) {
+@media only screen and (max-width: 400px) {
+    #addthis {
+        text-align: center;
+        .addthis_toolbox {
+            display: inline-block;
+            .at300b {
+                margin-bottom: 5px;
+                &:nth-child(6) {
                     clear: both;
                     margin-left: 22px;
                 }
