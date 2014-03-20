@@ -5,3 +5,4 @@ dist
 app/bower_components
 *.sublime-workspace
 .sftp-config.json
+sftp-config.json
