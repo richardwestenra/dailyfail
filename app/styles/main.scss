@@ -69,6 +69,14 @@ body {
         background: darken(steelblue,15%);
     }
 }
+hr {
+    margin: 2em 0;
+    $c: #ccc;
+    height: 1px;
+    border: none;
+    background-color: $c;
+    color: $c;
+}
 
 .browsehappy {
     margin: 0.2em 0;
@@ -83,15 +91,22 @@ body {
     @media screen and (min-width: $media*1.2){
         display: block;
     }
+    .fb-like {
+        margin-bottom: 10px;
+    }
 }
-.fb-like {
-    margin-bottom: 10px;
-}
-hr {
-    margin: 2em 0;
-    $c: #ccc;
-    height: 1px;
-    border: none;
-    background-color: $c;
-    color: $c;
+#addthis {
+    text-align: center;
+    .addthis_toolbox {
+        display: inline-block;
+        .at300b {
+            margin-bottom: 5px;
+            &:nth-child(6) {
+                @media only screen and (max-width: 400px) {
+                    clear: both;
+                    margin-left: 22px;
+                }
+            }
+        }
+    }
 }

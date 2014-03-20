@@ -115,14 +115,16 @@
             </ol>
 
            <!-- AddThis Button BEGIN -->
-            <div class="addthis_toolbox addthis_default_style addthis_32x32_style">
-                <a class="addthis_button_facebook"></a>
-                <a class="addthis_button_twitter"></a>
-                <a class="addthis_button_linkedin"></a>
-                <a class="addthis_button_google_plusone_share"></a>
-                <a class="addthis_button_pinterest_share"></a>
-                <a class="addthis_button_stumbleupon"></a>
-                <a class="addthis_button_compact"></a><a class="addthis_counter addthis_bubble_style"></a>
+           <div id="addthis">
+                <div class="addthis_toolbox addthis_default_style addthis_32x32_style">
+                    <a class="addthis_button_facebook"></a>
+                    <a class="addthis_button_twitter"></a>
+                    <a class="addthis_button_linkedin"></a>
+                    <a class="addthis_button_google_plusone_share"></a>
+                    <a class="addthis_button_pinterest_share"></a>
+                    <a class="addthis_button_stumbleupon"></a>
+                    <a class="addthis_button_compact"></a><a class="addthis_counter addthis_bubble_style"></a>
+                </div>
             </div>
             <p>Thanks! &lt;3</p>
             <hr/>
@@ -164,6 +166,7 @@
                 });
             });
         </script>
+        <!-- This script isn't really necessary for this page but grunt won't build it unless I include it and hey, at least it'll cache it to make it run faster on the DM site. -->
         <!-- build:js scripts/main.js -->
             <script src="scripts/main.js"></script>
         <!-- endbuild -->
