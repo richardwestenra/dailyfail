@@ -4,4 +4,5 @@ dist
 .sass-cache
 app/bower_components
 *.sublime-workspace
-.sftp-config.json
+dailymail.sublime-workspace
+sftp-config.json
